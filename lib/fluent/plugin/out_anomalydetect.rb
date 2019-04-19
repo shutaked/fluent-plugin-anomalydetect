@@ -111,7 +111,7 @@ module Fluent
         if @targets
           Proc.new {|outlier, score, val, target| {"#{target}#{@outlier_suffix}" => outlier, "#{target}#{@score_suffix}" => score, "#{target}#{@target_suffix}" => val } }
         else
-          Proc.new {|outlier, score, val, target| {"outlier" => outlier, "score" => score, "target" => val} }
+          Proc.new {|outlier, score, val, target| {"outlier#{@outlier_suffix}" => outlier, "score#{@score_suffix}" => score, "target#{@target_suffix}" => val} }
         end
 
       if @threshold and @thresholds
